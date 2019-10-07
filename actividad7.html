@@ -1,0 +1,22 @@
+<script>
+
+
+let partidos = new Map;
+
+let pregunta = prompt("¿Introducir resultados partidos? 'Si' o 'No");
+
+if (pregunta == "Si") {
+    let equipoA = prompt("Introduce el primer equipo");
+    let equipoB = prompt("Introduce el segundo equipo");
+    let golesA = prompt("Introduce goles del primer equipo");
+    let golesB = prompt("Introduce goles del segundo equipo");
+
+    let introducirA = partidos.set(equipoA,golesA);
+    let introducirB = partidos.set(equipoB,golesB);
+} 
+
+console.log(partidos);
+
+
+
+</script>

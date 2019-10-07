@@ -1,0 +1,67 @@
+<script>
+
+
+let x = new Set;
+let y = new Set;
+
+x.add(2);
+x.add(4);
+x.add(6); //
+x.add(8); //
+
+y.add(6); //
+y.add(8); //
+y.add(9);
+
+union(x,y);
+
+function union (x,y) {
+    let juntar = new Set;
+
+    for (let value of x) {
+        juntar.add(value);
+    }
+    for (let value of y) {
+        juntar.add(value);
+    }
+    console.log(juntar);
+}
+
+
+intersection(x,y);
+
+function intersection (x,y) {
+    let interseccion = new Set;
+
+    for (let value of x) {
+        for (let value2 of y) {
+            if (value == value2) {
+            interseccion.add(value2);
+            }
+        }
+    }
+    console.log(interseccion);
+}
+
+
+difference(x,y);
+
+function difference (x,y) {
+    let diferencia = new Set;
+
+    for (let value of x) {
+        diferencia.add(value);
+        for (let value2 of y) {
+            let dif = diferencia.has(value);
+            if (dif == true) {
+                diferencia.delete(value2);
+            } else {
+                diferencia.add(value2);
+            }
+        }
+    }
+    console.log(diferencia);
+}
+
+
+</script>

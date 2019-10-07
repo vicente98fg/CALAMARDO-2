@@ -1,0 +1,34 @@
+<script>
+
+var introducir;
+var contador = 1;
+
+let marcas = new Map();
+
+
+while (introducir != "*") {
+    introducir = prompt("Dame marcas de tiempo. Escribe * para detener la introduccion.");
+    if (marcas.has(introducir)) {
+        contador = contador + 1;
+        marcas.set(introducir,contador);
+        marcas.delete('*');
+    } else {
+    marcas.set(introducir,contador);
+    marcas.delete('*');
+    }
+}
+
+
+var getFrecuente = function (marcas) {
+    var max;
+    for (var [introducir, contador] of marcas) {
+        max = (!max || max < contador) ? contador : max;
+    }
+    let masFrecuente = [introducir,max];
+    return masFrecuente;
+}
+
+document.write("La marca mas frecuente ha sido ",getFrecuente(marcas));
+
+
+</script>

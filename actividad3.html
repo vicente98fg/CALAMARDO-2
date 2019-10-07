@@ -1,0 +1,21 @@
+<script>
+
+var x;
+let calles = new Set;
+
+while (x != "basta") {
+    x = prompt("Dime calles por las que quieres que pase el autobus. Escibre 'basta' para parar.");
+    callesAutobus(x);
+}
+
+
+function callesAutobus (x) {
+
+    calles.add(x);
+    calles.delete("basta");
+
+}
+
+console.log(calles);
+
+</script>

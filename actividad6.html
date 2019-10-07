@@ -1,0 +1,45 @@
+<script>
+
+
+let m = prompt("Dime un numero de caras para el dado");
+let n = prompt("Dime cuantas veces se va a tirar el dado");
+
+let resultados = new Map;
+
+goTiradas(m,n);
+
+function goTiradas (m,n) {
+    var i;
+    for (i = 0; i < (n*1000); i++) {
+        var tirada = Math.round(Math.random() * m);
+
+        if (resultados.has(tirada)) {
+            contador = contador+ 1;
+            resultados.set(tirada,contador);
+
+        } else {
+            contador = 1;
+            resultados.set(tirada,contador);
+            
+        }
+    }
+}
+
+
+buscarMax();
+
+function buscarMax () {
+    let max = Math.max(...resultados.values())
+    for (var [tirada, contador] of resultados) {
+        let buscar = contador - max;
+        if (buscar == 0) {
+            let tiradaFrecuente = tirada;
+            document.write("La cara mas frecuente ha sido ",tiradaFrecuente," con ",max," tiradas");
+        }
+    }
+}
+
+
+
+
+</script>
