@@ -1,21 +1,42 @@
 <script>
 
-
+var pregunta;
 let partidos = new Map;
 
-let pregunta = prompt("¿Introducir resultados partidos? 'Si' o 'No");
+while (pregunta != "No") {
+    pregunta = prompt("Introducir resultados partidos? 'Si' o 'No");
 
-if (pregunta == "Si") {
-    let equipoA = prompt("Introduce el primer equipo");
-    let equipoB = prompt("Introduce el segundo equipo");
-    let golesA = prompt("Introduce goles del primer equipo");
-    let golesB = prompt("Introduce goles del segundo equipo");
+    if (pregunta == "Si") {
+        let equipoLocal = prompt("Introduce el primer equipo");
+        let golesLocal = prompt("Introduce goles del primer equipo");
+        
+        let introducirLocal = partidos.set(equipoLocal,golesLocal);
+        
+        let equipoVisitante = prompt("Introduce el segundo equipo");
+        let golesVisitante = prompt("Introduce goles del segundo equipo");
 
-    let introducirA = partidos.set(equipoA,golesA);
-    let introducirB = partidos.set(equipoB,golesB);
+        let introducirVisitante = partidos.set(equipoVisitante,golesVisitante);
+        
+    } else if (pregunta == "No") {
+        break;
+    }
 } 
 
+let numero = Number(prompt("Dime un numero positivo, anda"));
+
+
+partidos[Symbol.iterator] = function* () {
+    yield* [...this.entries()].sort((b, a) => a[1] - b[1]);
+}
+
+for (let [key, value] of partidos) {
+    document.write(key + ' ' + value + '<br>');
+}
+
+
+
 console.log(partidos);
+console.log(numero);
 
 
 

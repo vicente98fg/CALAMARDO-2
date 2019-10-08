@@ -1,0 +1,41 @@
+<script>
+
+
+let alreadyVisitedSet = new Set;
+let extractedURLsArray = ['Google','Facebook','Twitter']
+
+while (paginas != '*') {
+    var paginas = prompt("Dime paginas web. '*' para salir.");
+    alreadyVisitedSet.add(paginas);
+}
+
+let quitarFin = alreadyVisitedSet.delete(paginas);
+shouldBeVisited(alreadyVisitedSet,extractedURLsArray);
+
+function shouldBeVisited (alreadyVisitedSet,extractedURLsArray) {
+    let paginasFinal = new Set;
+    var i;
+
+    for (i = 0; i < extractedURLsArray.length; i++) {
+        if (alreadyVisitedSet.has(extractedURLsArray[i])) {
+            paginasFinal.add(extractedURLsArray[i]);
+        }
+    }
+
+    console.log(paginasFinal);
+}
+
+
+
+console.log(alreadyVisitedSet);
+console.log(extractedURLsArray);
+
+
+
+
+
+
+
+
+
+</script>
